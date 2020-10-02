@@ -8,5 +8,6 @@ namespace CovidTracker.Net.Clients
     {
         Task<List<HistoricValuesForStateResourceModel>> GetHistoricValuesForStateAsync(string state);
         Task<MetaForStateResourceModel> GetMetadataForStateAsync(string state);
+        Task<List<MetaForStateResourceModel>> GetStatesMetaDataAsync();
     }
 }
