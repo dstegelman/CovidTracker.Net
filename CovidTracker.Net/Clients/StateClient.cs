@@ -36,5 +36,16 @@ namespace CovidTracker.Net.Clients
             }
             throw new FailedToFetchException("Failed to fetch state meta data");
         }
+
+        public async Task<List<MetaForStateResourceModel>> GetStatesMetaDataAsync()
+        {
+            var request = new RestRequest($"v1/states/info.json");
+            var response = await _client.ExecuteAsync<List<MetaForStateResourceModel>>(request);
+            if (response.IsSuccessful)
+            {
+                return response.Data;
+            }
+            throw new FailedToFetchException("Failed to fetch meta for all states");
+        }
     }
 }

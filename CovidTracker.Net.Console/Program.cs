@@ -18,6 +18,11 @@ namespace CovidTracker.Net.Console
             var coloradoMetaData = await client.State.GetMetadataForStateAsync("co");
             System.Console.WriteLine(coloradoMetaData.twitter);
 
+            foreach (var item in await client.State.GetStatesMetaDataAsync())
+            {
+                System.Console.WriteLine(item.twitter);
+            }
+
         }
     }
 }
