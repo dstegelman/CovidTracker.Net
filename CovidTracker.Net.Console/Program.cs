@@ -20,6 +20,7 @@ namespace CovidTracker.Net.Console
             System.Console.WriteLine(coloradoMetaData.twitter);
             var currentColoradoData = await client.State.GetCurrentState("co");
             System.Console.WriteLine(currentColoradoData.positiveIncrease);
+            System.Console.WriteLine(currentColoradoData.inIcuCurrently);
             foreach (var item in await client.State.GetStatesMetaDataAsync())
             {
                 //System.Console.WriteLine(item.twitter);

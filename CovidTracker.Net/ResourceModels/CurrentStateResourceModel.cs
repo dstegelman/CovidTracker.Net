@@ -13,6 +13,7 @@ namespace CovidTracker.Net.ResourceModels
         public int totalTestResults { get; set; }
         public int hopsitalizedCurrently { get; set; }
         public int hospitalizedCumulative { get; set; }
+        public int inIcuCurrently { get; set; }
         public int positiveIncrease { get; set; }
 
     }
