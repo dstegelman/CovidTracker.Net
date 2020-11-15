@@ -14,7 +14,18 @@ namespace CovidTracker.Net.Clients
         {
             _client = client;    
         }
-        
+
+        public async Task<CurrentStateResourceModel> GetCurrentState(string state)
+        {
+            var request = new RestRequest($"v1/states/{state}/current.json");
+            var response = await _client.ExecuteAsync<CurrentStateResourceModel>(request);
+            if(response.IsSuccessful)
+            {
+                return response.Data;
+            }
+            throw new FailedToFetchException("Failed to fetch current state data", response.ErrorException);
+        }
+
         public async Task<List<HistoricValuesForStateResourceModel>> GetHistoricValuesForStateAsync(string state)
         {
             var request = new RestRequest($"v1/states/{state}/daily.json");
